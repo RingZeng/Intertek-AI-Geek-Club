@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人技术档案区 - AI极客俱乐部</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 顶部导航栏（与首页相同） -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <h1>🤖 AI极客俱乐部</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">🏠 首页</a>
+            <a href="members.html" class="nav-link active">👤 个人档案</a>
+            <a href="discussions.html" class="nav-link">💬 技术交流</a>
+            <a href="projects.html" class="nav-link">🤝 项目合作</a>
+            <a href="resources.html" class="nav-link">📁 文件共享</a>
+            <a href="live-chat.html" class="nav-link">💬 实时交流</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="page-header">
+            <h2>👤 个人技术档案区</h2>
+            <p>展示每位成员的技术专长、实践案例与联系方式</p>
+        </div>
+
+        <!-- 创建档案表单 -->
+        <div class="card" id="create-profile">
+            <h3>📝 创建/更新你的技术档案</h3>
+            <div class="form-container">
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="name">姓名（中英文）*</label>
+                        <input type="text" id="name" placeholder="例如：刘丹丹 (Dany Liu)" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="department">部门*</label>
+                            <input type="text" id="department" placeholder="例如：Hardlines" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="location">工作地点*</label>
+                            <input type="text" id="location" placeholder="例如：宁波" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">邮箱/联系方式</label>
+                        <input type="email" id="email" placeholder="公司邮箱">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills">技术标签（最多选5个）</label>
+                        <div class="skills-selector">
+                            <div class="skill-tag" data-skill="AI工具">🤖 AI工具</div>
+                            <div class="skill-tag" data-skill="VBA">⚡ VBA/Excel</div>
+                            <div class="skill-tag" data-skill="Python">💻 Python</div>
+                            <div class="skill-tag" data-skill="RPA">🔧 RPA</div>
+                            <div class="skill-tag" data-skill="数据分析">📊 数据分析</div>
+                            <div class="skill-tag" data-skill="多媒体">🎨 多媒体</div>
+                            <div class="skill-tag" data-skill="系统开发">🏢 系统开发</div>
+                        </div>
+                        <input type="text" id="selected-skills" readonly placeholder="已选择的技能">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tools">擅长工具</label>
+                        <input type="text" id="tools" placeholder="例如：DeepSeek, Excel VBA, Python">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="case">实践案例分享</label>
+                        <textarea id="case" rows="4" placeholder="请分享一个你使用AI/自动化工具解决实际问题的案例，包括：背景、方法、成果"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest">兴趣方向/想学习的技术</label>
+                        <input type="text" id="interest" placeholder="例如：想学习Python数据分析和AI绘图">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">提交档案</button>
+                        <button type="reset" class="btn-secondary">清空重填</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 搜索和筛选 -->
+        <div class="card">
+            <h3>🔍 查找技术专家</h3>
+            <div class="search-filter">
+                <input type="text" id="searchInput" placeholder="搜索姓名、部门、技术关键词...">
+                <div class="filter-options">
+                    <select id="deptFilter">
+                        <option value="">所有部门</option>
+                        <option value="Hardlines">Hardlines</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Softlines">Softlines</option>
+                        <option value="Chemical Lab">Chemical Lab</option>
+                        <option value="Food">Food</option>
+                        <option value="Transportation">Transportation</option>
+                    </select>
+                    <select id="skillFilter">
+                        <option value="">所有技能</option>
+                        <option value="AI工具">AI工具</option>
+                        <option value="VBA">VBA/Excel</option>
+                        <option value="Python">Python</option>
+                        <option value="RPA">RPA</option>
+                    </select>
+                    <button id="resetFilter" class="btn-small">重置筛选</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 成员列表 -->
+        <div class="card">
+            <h3>🧑‍💻 技术专家库（52人）</h3>
+            <div class="members-grid" id="membersContainer">
+                <!-- 成员卡片将在这里动态生成 -->
+                <!-- 我们先用静态数据展示几个示例 -->
+                
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar">刘</div>
+                        <div class="member-info">
+                            <h4>刘丹丹 (Dany Liu)</h4>
+                            <p class="member-dept">Hardlines · 宁波</p>
+                        </div>
+                    </div>
+                    <div class="member-skills">
+                        <span class="skill-badge">📈 Excel数据分析</span>
+                        <span class="skill-badge">📊 自动化报表</span>
+                    </div>
+                    <p class="member-tools"><strong>擅长工具：</strong>Excel</p>
+                    <div class="member-case">
+                        <p><strong>实践案例：</strong>通过Excel制作数据信息汇总表，粘贴系统数据后自动显示汇总信息，节省统计时间。</p>
+                    </div>
+                    <div class="member-actions">
+                        <button class="contact-btn">联系TA</button>
+                        <button class="view-btn">查看详情</button>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar">诸</div>
+                        <div class="member-info">
+                            <h4>诸林 (Tony Zhu)</h4>
+                            <p class="member-dept">Softlines · 无锡</p>
+                        </div>
+                    </div>
+                    <div class="member-skills">
+                        <span class="skill-badge">🔧 VBA开发</span>
+                        <span class="skill-badge">🏢 系统构建</span>
+                    </div>
+                    <p class="member-tools"><strong>擅长工具：</strong>VBA编程语言</p>
+                    <div class="member-case">
+                        <p><strong>实践案例：</strong>开发Turbo Support Center软件，适配业务线各部门需求，已推广至多个实验室。</p>
+                    </div>
+                    <div class="member-actions">
+                        <button class="contact-btn">联系TA</button>
+                        <button class="view-btn">查看详情</button>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar">陈</div>
+                        <div class="member-info">
+                            <h4>陈焕钦 (Patrick Chen)</h4>
+                            <p class="member-dept">Electrical · 杭州</p>
+                        </div>
+                    </div>
+                    <div class="member-skills">
+                        <span class="skill-badge">💻 代码工具</span>
+                        <span class="skill-badge">🚀 效率软件</span>
+                    </div>
+                    <p class="member-tools"><strong>擅长工具：</strong>VS Code + GitHub Copilot</p>
+                    <div class="member-case">
+                        <p><strong>实践案例：</strong>编写EMC预约排班系统、扫描文件自动处理系统等多款效率工具。</p>
+                    </div>
+                    <div class="member-actions">
+                        <button class="contact-btn">联系TA</button>
+                        <button class="view-btn">查看详情</button>
+                    </div>
+                </div>
+
+                <!-- 更多成员卡片... -->
+            </div>
+            
+            <div class="load-more">
+                <button id="loadMoreBtn">加载更多专家...</button>
+            </div>
+        </div>
+
+        <!-- 技术标签云 -->
+        <div class="card">
+            <h3>🏷️ 热门技术标签</h3>
+            <div class="tag-cloud">
+                <span class="tag-large">DeepSeek</span>
+                <span class="tag-large">豆包</span>
+                <span class="tag-medium">Excel</span>
+                <span class="tag-medium">VBA</span>
+                <span class="tag-medium">Python</span>
+                <span class="tag-small">Kimi</span>
+                <span class="tag-small">通义千问</span>
+                <span class="tag-small">Uipath</span>
+                <span class="tag-small">Power BI</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>© 2026 天祥集团AI极客俱乐部</p>
+        <p>内部技术交流社区 | 技术支持：IT部门</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 简单的技能选择功能
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                updateSelectedSkills();
+            });
+        });
+
+        function updateSelectedSkills() {
+            const selected = Array.from(document.querySelectorAll('.skill-tag.selected'))
+                .map(tag => tag.textContent)
+                .join(', ');
+            document.getElementById('selected-skills').value = selected;
+        }
+
+        // 表单提交（简化版）
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('档案提交成功！\n注意：这是演示版本，实际需要后端支持。\n我们将在后续版本中实现数据保存功能。');
+        });
+    </script>
+</body>
+</html>
