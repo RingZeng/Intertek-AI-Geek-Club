@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目合作交流区 - AI极客俱乐部</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <h1>🤖 AI极客俱乐部</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">🏠 首页</a>
+            <a href="members.html" class="nav-link">👤 个人档案</a>
+            <a href="discussions.html" class="nav-link">💬 技术交流</a>
+            <a href="projects.html" class="nav-link active">🤝 项目合作</a>
+            <a href="resources.html" class="nav-link">📁 文件共享</a>
+            <a href="live-chat.html" class="nav-link">💬 实时交流</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="page-header">
+            <h2>🤝 项目合作交流区</h2>
+            <p>创意项目征集、技术难题求助、跨部门协作</p>
+        </div>
+
+        <!-- 项目类型导航 -->
+        <div class="project-types">
+            <div class="project-type active" data-type="all">
+                <div class="type-icon">📋</div>
+                <div class="type-name">全部项目</div>
+                <div class="type-count">12</div>
+            </div>
+            <div class="project-type" data-type="recruiting">
+                <div class="type-icon">🚀</div>
+                <div class="type-name">项目招募</div>
+                <div class="type-count">5</div>
+            </div>
+            <div class="project-type" data-type="help">
+                <div class="type-icon">❓</div>
+                <div class="type-name">技术求助</div>
+                <div class="type-count">4</div>
+            </div>
+            <div class="project-type" data-type="collaboration">
+                <div class="type-icon">🤝</div>
+                <div class="type-name">跨部门协作</div>
+                <div class="type-count">3</div>
+            </div>
+        </div>
+
+        <!-- 创建新项目 -->
+        <div class="card new-project-card">
+            <h3>📢 发起新项目/求助</h3>
+            <div class="project-form">
+                <div class="form-row">
+                    <input type="text" placeholder="项目名称" class="project-title">
+                    <select class="project-type-select">
+                        <option value="">选择类型</option>
+                        <option value="recruiting">项目招募</option>
+                        <option value="help">技术求助</option>
+                        <option value="collaboration">跨部门协作</option>
+                    </select>
+                </div>
+                
+                <textarea placeholder="项目描述：请详细说明背景、目标、预期成果..." rows="4"></textarea>
+                
+                <div class="form-row">
+                    <input type="text" placeholder="所需技能（如：VBA, Python, AI）" class="project-skills">
+                    <input type="text" placeholder="预计时间投入（小时/周）" class="project-time">
+                </div>
+                
+                <div class="form-row">
+                    <input type="text" placeholder="联系人" class="project-contact">
+                    <input type="email" placeholder="联系邮箱" class="project-email">
+                </div>
+                
+                <div class="form-actions">
+                    <button class="btn-primary">发布项目</button>
+                    <button class="btn-secondary">预览</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 推荐项目（基于用户技能） -->
+        <div class="card">
+            <h3>🎯 推荐给你</h3>
+            <div class="recommended-projects">
+                <div class="project-card featured">
+                    <div class="project-status urgent">🔥 紧急</div>
+                    <div class="project-content">
+                        <h4>实验室数据自动化汇总工具</h4>
+                        <p class="project-desc">化学实验室需要开发自动化工具，将每日测试数据自动汇总并生成报告，目前手动操作耗时2小时/天。</p>
+                        <div class="project-meta">
+                            <span class="project-author">发起人：谢浙囡 · 化学实验室</span>
+                            <span class="project-date">发布时间：2024-01-10</span>
+                        </div>
+                        <div class="project-skills-list">
+                            <span class="skill-req">VBA</span>
+                            <span class="skill-req">Excel</span>
+                            <span class="skill-req">数据清洗</span>
+                        </div>
+                        <div class="project-info">
+                            <span class="info-item">⏰ 预计：20小时</span>
+                            <span class="info-item">👥 需要：2人</span>
+                            <span class="info-item">💬 已有：3人申请</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="apply-btn">申请加入</button>
+                        <button class="detail-btn">查看详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 全部项目列表 -->
+        <div class="card">
+            <div class="section-header">
+                <h3>📋 全部项目</h3>
+                <div class="project-filters">
+                    <select id="projectSort">
+                        <option value="newest">最新发布</option>
+                        <option value="urgent">最紧急</option>
+                        <option value="popular">最热门</option>
+                    </select>
+                    <select id="projectStatus">
+                        <option value="">所有状态</option>
+                        <option value="open">进行中</option>
+                        <option value="closed">已完成</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="projects-list">
+                <!-- 项目1 -->
+                <div class="project-card" data-type="recruiting">
+                    <div class="project-status open">🟢 招募中</div>
+                    <div class="project-content">
+                        <h4>AI辅助标准解读工具开发</h4>
+                        <p class="project-desc">开发AI工具自动解读测试标准，提取关键要求，减少工程师人工阅读时间。</p>
+                        <div class="project-meta">
+                            <span class="project-author">胡润泽 · Electrical</span>
+                            <span class="project-date">2024-01-09</span>
+                        </div>
+                        <div class="project-skills-list">
+                            <span class="skill-req">Python</span>
+                            <span class="skill-req">AI模型</span>
+                            <span class="skill-req">NLP</span>
+                        </div>
+                        <div class="project-info">
+                            <span class="info-item">⏰ 预计：40小时</span>
+                            <span class="info-item">👥 需要：3人</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="apply-btn">申请加入</button>
+                    </div>
+                </div>
+
+                <!-- 项目2 -->
+                <div class="project-card" data-type="help">
+                    <div class="project-status urgent">🔴 紧急求助</div>
+                    <div class="project-content">
+                        <h4>VBA代码优化：批量处理PDF报告</h4>
+                        <p class="project-desc">现有VBA脚本处理速度慢，需要优化性能，处理100个文件从1小时降到10分钟。</p>
+                        <div class="project-meta">
+                            <span class="project-author">吴晋波 · Hardlines</span>
+                            <span class="project-date">2024-01-08</span>
+                        </div>
+                        <div class="project-skills-list">
+                            <span class="skill-req">VBA高级</span>
+                            <span class="skill-req">性能优化</span>
+                        </div>
+                        <div class="project-info">
+                            <span class="info-item">⏰ 预计：8小时</span>
+                            <span class="info-item">💰 悬赏：500积分</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="apply-btn">我来解决</button>
+                    </div>
+                </div>
+
+                <!-- 项目3 -->
+                <div class="project-card" data-type="collaboration">
+                    <div class="project-status open">🟡 跨部门</div>
+                    <div class="project-content">
+                        <h4>食品部客户管理自动化系统</h4>
+                        <p class="project-desc">食品部需要与IT部门合作开发客户信息自动化管理系统。</p>
+                        <div class="project-meta">
+                            <span class="project-author">张茜 · Food</span>
+                            <span class="project-date">2024-01-07</span>
+                        </div>
+                        <div class="project-skills-list">
+                            <span class="skill-req">系统开发</span>
+                            <span class="skill-req">数据库</span>
+                            <span class="skill-req">UI设计</span>
+                        </div>
+                        <div class="project-info">
+                            <span class="info-item">👥 需要：IT部+食品部</span>
+                            <span class="info-item">🏢 跨部门协作</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="apply-btn">申请协作</button>
+                    </div>
+                </div>
+
+                <!-- 项目4 -->
+                <div class="project-card" data-type="recruiting">
+                    <div class="project-status closed">✅ 已完成</div>
+                    <div class="project-content">
+                        <h4>营销视频AI自动化制作</h4>
+                        <p class="project-desc">使用AI工具自动化生成营销视频，已成功应用，效率提升80%。</p>
+                        <div class="project-meta">
+                            <span class="project-author">李洁宜 · Marketing</span>
+                            <span class="project-date">2024-01-05</span>
+                        </div>
+                        <div class="project-skills-list">
+                            <span class="skill-req">视频制作</span>
+                            <span class="skill-req">AI生成</span>
+                        </div>
+                        <div class="project-info">
+                            <span class="info-item">✅ 已完成</span>
+                            <span class="info-item">🎉 成功案例</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="detail-btn">查看成果</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">下一页</button>
+            </div>
+        </div>
+
+        <!-- 成功案例展示 -->
+        <div class="card">
+            <h3>🏆 成功项目案例</h3>
+            <div class="success-cases">
+                <div class="case-card">
+                    <div class="case-icon">🎬</div>
+                    <div class="case-content">
+                        <h4>营销视频自动化流水线</h4>
+                        <p>使用AI工具将视频制作时间从8小时缩短到1小时</p>
+                        <div class="case-team">
+                            <span class="team-member">李洁宜</span>
+                            <span class="team-member">邱芯薇</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-icon">📊</div>
+                    <div class="case-content">
+                        <h4>实验室日报自动生成系统</h4>
+                        <p>VBA自动化工具，节省每日2小时手动汇总时间</p>
+                        <div class="case-team">
+                            <span class="team-member">诸林</span>
+                            <span class="team-member">高凌宇</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 天祥英标集团AI极客俱乐部</p>
+        <p>项目合作请联系各项目发起人</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 项目类型切换
+        document.querySelectorAll('.project-type').forEach(type => {
+            type.addEventListener('click', function() {
+                document.querySelectorAll('.project-type').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                const projectType = this.getAttribute('data-type');
+                // 这里可以添加项目筛选逻辑
+            });
+        });
+
+        // 申请加入项目
+        document.querySelectorAll('.apply-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const projectTitle = this.closest('.project-card').querySelector('h4').textContent;
+                alert(`已申请加入项目：${projectTitle}\n项目发起人将很快联系你！`);
+            });
+        });
+    </script>
+</body>
+</html>
