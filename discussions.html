@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术交流区 - AI极客俱乐部</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <h1>🤖 AI极客俱乐部</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">🏠 首页</a>
+            <a href="members.html" class="nav-link">👤 个人档案</a>
+            <a href="discussions.html" class="nav-link active">💬 技术交流</a>
+            <a href="projects.html" class="nav-link">🤝 项目合作</a>
+            <a href="resources.html" class="nav-link">📁 文件共享</a>
+            <a href="live-chat.html" class="nav-link">💬 实时交流</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="page-header">
+            <h2>💬 技术交流区</h2>
+            <p>按技术方向划分，专业问题深度讨论</p>
+        </div>
+
+        <!-- 技术版块导航 -->
+        <div class="tech-tabs">
+            <div class="tab active" data-tab="ai-tools">🤖 AI工具应用</div>
+            <div class="tab" data-tab="vba-excel">⚡ VBA/Excel自动化</div>
+            <div class="tab" data-tab="coding">💻 代码开发</div>
+            <div class="tab" data-tab="multimedia">🎨 多媒体创作</div>
+            <div class="tab" data-tab="rpa">🔧 RPA流程自动化</div>
+            <div class="tab" data-tab="data">📊 数据分析</div>
+        </div>
+
+        <!-- 新话题发布 -->
+        <div class="card new-topic-card">
+            <h3>📢 发布新话题</h3>
+            <div class="topic-form">
+                <input type="text" placeholder="话题标题（请描述具体问题）" class="topic-title">
+                <select class="topic-category">
+                    <option value="">选择分类</option>
+                    <option value="ai-tools">AI工具应用</option>
+                    <option value="vba-excel">VBA/Excel自动化</option>
+                    <option value="coding">代码开发</option>
+                    <option value="multimedia">多媒体创作</option>
+                    <option value="rpa">RPA流程自动化</option>
+                    <option value="data">数据分析</option>
+                </select>
+                <textarea placeholder="详细描述你的问题或分享内容...（支持Markdown格式）" class="topic-content" rows="5"></textarea>
+                <div class="topic-actions">
+                    <button class="btn-primary">发布话题</button>
+                    <button class="btn-secondary">保存草稿</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 热门话题 -->
+        <div class="card">
+            <div class="section-header">
+                <h3>🔥 热门讨论</h3>
+                <div class="sort-options">
+                    <select id="sortBy">
+                        <option value="latest">最新发布</option>
+                        <option value="popular">最多回复</option>
+                        <option value="hot">最热话题</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 话题列表 -->
+            <div class="topics-list">
+                <!-- AI工具版块话题 -->
+                <div class="topic-item" data-category="ai-tools">
+                    <div class="topic-status solved">
+                        <span>✅ 已解决</span>
+                    </div>
+                    <div class="topic-content">
+                        <h4><a href="#">如何让DeepSeek更好地理解专业术语？</a></h4>
+                        <p>我在用DeepSeek分析实验室标准文档时，它经常误解专业术语，有什么好的提示词技巧？</p>
+                        <div class="topic-meta">
+                            <span class="topic-author">刘丹丹 · Hardlines</span>
+                            <span class="topic-time">2小时前</span>
+                            <span class="topic-replies">💬 15 回复</span>
+                            <span class="topic-views">👁️ 89 浏览</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-item" data-category="vba-excel">
+                    <div class="topic-status pending">
+                        <span>❓ 求助中</span>
+                    </div>
+                    <div class="topic-content">
+                        <h4><a href="#">VBA代码报错：运行时错误91</a></h4>
+                        <p>在运行Excel自动化脚本时遇到这个错误，已尝试清理变量和检查对象引用，求帮忙！</p>
+                        <div class="topic-meta">
+                            <span class="topic-author">诸林 · Softlines</span>
+                            <span class="topic-time">5小时前</span>
+                            <span class="topic-replies">💬 8 回复</span>
+                            <span class="topic-views">👁️ 67 浏览</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-item" data-category="coding">
+                    <div class="topic-status solved">
+                        <span>✅ 已解决</span>
+                    </div>
+                    <div class="topic-content">
+                        <h4><a href="#">Python如何批量处理Excel中的测试数据？</a></h4>
+                        <p>每天需要处理上百个Excel文件，想用Python自动化，求代码示例！</p>
+                        <div class="topic-meta">
+                            <span class="topic-author">陈焕钦 · Electrical</span>
+                            <span class="topic-time">1天前</span>
+                            <span class="topic-replies">💬 22 回复</span>
+                            <span class="topic-views">👁️ 134 浏览</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-item" data-category="ai-tools">
+                    <div class="topic-status active">
+                        <span>🔥 进行中</span>
+                    </div>
+                    <div class="topic-content">
+                        <h4><a href="#">豆包和DeepSeek哪个更适合写代码？</a></h4>
+                        <p>两个都用过，感觉各有优势，想听听大家的经验和对比。</p>
+                        <div class="topic-meta">
+                            <span class="topic-author">冯林 · Building&Construction</span>
+                            <span class="topic-time">2天前</span>
+                            <span class="topic-replies">💬 31 回复</span>
+                            <span class="topic-views">👁️ 210 浏览</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-item" data-category="multimedia">
+                    <div class="topic-status solved">
+                        <span>✅ 已解决</span>
+                    </div>
+                    <div class="topic-content">
+                        <h4><a href="#">如何用AI生成专业的技术培训PPT？</a></h4>
+                        <p>想为团队制作AI工具培训材料，求推荐工具和流程。</p>
+                        <div class="topic-meta">
+                            <span class="topic-author">邱芯薇 · Quality Assurance</span>
+                            <span class="topic-time">3天前</span>
+                            <span class="topic-replies">💬 12 回复</span>
+                            <span class="topic-views">👁️ 98 浏览</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <span>...</span>
+                <button class="pagination-btn">下一页</button>
+            </div>
+        </div>
+
+        <!-- 技术资源推荐 -->
+        <div class="card">
+            <h3>📚 热门技术资源</h3>
+            <div class="resources-grid">
+                <div class="resource-item">
+                    <div class="resource-icon">📖</div>
+                    <div class="resource-content">
+                        <h4>DeepSeek提示词最佳实践</h4>
+                        <p>专业场景下的高效提示技巧</p>
+                        <span class="resource-author">冯林 整理</span>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <div class="resource-icon">🎬</div>
+                    <div class="resource-content">
+                        <h4>VBA自动化入门视频教程</h4>
+                        <p>从零开始学习Excel自动化</p>
+                        <span class="resource-author">诸林 制作</span>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <div class="resource-icon">🛠️</div>
+                    <div class="resource-content">
+                        <h4>Python数据处理代码库</h4>
+                        <p>常用数据清洗和分析脚本</p>
+                        <span class="resource-author">陈焕钦 分享</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 天祥集团AI极客俱乐部</p>
+        <p>技术问题请在企业微信群中交流</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 标签切换功能
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // 移除所有active
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                // 当前标签激活
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-tab');
+                // 这里可以添加筛选话题的功能
+                alert('切换到：' + this.textContent + '版块');
+            });
+        });
+    </script>
+</body>
+</html>
